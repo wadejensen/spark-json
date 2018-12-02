@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy._
   * it is the the no-op / identity / do nothing strategy.
   *
   * More useful strategies provided by Jackson include:
-  * [[LowerCaseWithUnderscoresStrategy]], [[PascalCaseStrategy]], [[LowerCaseStrategy]],
+  * [[LowerCaseWithUnderscoresStrategy]], [[PascalCaseStrategy]], [[LowerCaseStrategy]]
   */
 class IdenticalStrategy extends PropertyNamingStrategyBase {
   override def translate(propertyName: String): String = propertyName

@@ -7,17 +7,28 @@ import org.apache.spark.sql.catalyst.encoders.ExpressionEncoder
 import org.apache.spark.sql.types.{StructField, StructType}
 import org.apache.spark.unsafe.types.UTF8String
 
-import scala.annotation.tailrec
 import scala.reflect.runtime.universe.TypeTag
 
 /**
   * Provides easy access to Spark's custom wrapper around Jackson JSON parsing which is specialized
-  * for working with Scala types, (much better Scala support than what is provided in
-  * [[com.fasterxml.jackson.module.scala.DefaultScalaModule]])
+  * for working with Scala types.
   *
-  * Based on Spark's public APIs for inferring the schema of a
-  * [[org.apache.spark.sql.DataFrame]] or [[org.apache.spark.sql.Dataset]], and then converting
-  * between the case class and internal row representations of the data.
+  * Works by using [[JacksonParser]], Spark's abstraction over Jackson's low level [[JsonFactory]]
+  * primitive. Used for mapping JSON strings into Spark supported data types @see
+  * ([[org.apache.spark.sql.types]]) in [[InternalRow]] format.
+  * This parser operates at a lower level than [[com.fasterxml.jackson.databind.ObjectMapper]].
+  *
+  * Once the JSON is parsed, it is stored in Spark's [[InternalRow]] format. We can then retrieve it
+  * as a ordinary case class using Spark's public APIs ([[ExpressionEncoder`[T]`]]) for inferring the
+  * schema of a [[org.apache.spark.sql.DataFrame]] or [[org.apache.spark.sql.Dataset]], and then
+  * converting between the case class and internal row representations of the data..
+  *
+  * The process at a high level:
+  * 1) Input row as String
+  * 2) [[JacksonParser#`parse[T]`]]
+  * 3) [[InternalRow]]
+  * 4) [[ExpressionEncoder#fromRow]]
+  * 5) Output row as [[T]]
   *
   * Only supports JSON encoded as UTF-8 strings.
   *
