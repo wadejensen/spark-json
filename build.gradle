@@ -1,0 +1,97 @@
+buildscript {
+  dependencies {
+    classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.0'
+  }
+
+  repositories {
+    jcenter()
+    mavenCentral()
+  }
+}
+
+plugins {
+  id 'com.palantir.git-version' version '0.9.1'
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+
+if (JavaVersion.current() != JavaVersion.VERSION_1_8) {
+  throw new GradleException("This build must be run with Java 8")
+}
+
+allprojects {
+  group = "com.wadejensen.spark-json-parser"
+  apply plugin: 'idea'
+  version = gitVersion()
+}
+
+subprojects {
+  apply plugin: 'scala'
+
+  repositories {
+    mavenCentral()
+    maven { url "http://repo.maven.apache.org/maven2" }
+  }
+
+  configurations {
+    testCompile.extendsFrom compileOnly
+  }
+
+  ext {
+    scalaVersion = '2.11'
+    jacksonVersion = '2.6.7'
+    sparkVersion = '2.3.0'
+    scalatestVersion = '2.2.6'
+    junitVersion = '4.12'
+    slf4jVersion = '1.7.16'
+    logbackVersion = '1.1.7'
+  }
+
+  sourceCompatibility = '1.8'
+  targetCompatibility = '1.8'
+}
+
+project(':sparkjson') {
+  apply plugin: 'scala'
+  apply plugin: 'com.github.johnrengelman.shadow'
+
+  configurations {
+    shadow
+    compileOnly.extendsFrom shadow
+
+    all {
+      exclude group: 'log4j', module: 'log4j'
+      exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }
+  }
+
+  shadowJar {
+    configurations = [project.configurations.shadow]
+    from(project.sourceSets.main.output)
+  }
+
+  dependencies {
+    compileOnly "org.apache.spark:spark-sql_$scalaVersion:$sparkVersion"
+
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "org.slf4j:log4j-over-slf4j:$slf4jVersion"
+    compile "ch.qos.logback:logback-classic:$logbackVersion"
+
+    testCompile "org.apache.spark:spark-sql_$scalaVersion:$sparkVersion"
+    testCompile "org.scalatest:scalatest_$scalaVersion:$scalatestVersion"
+    testCompile "junit:junit:$junitVersion"
+  }
+
+  test {
+    testLogging {
+      showStackTraces = true
+      showExceptions = true
+      showCauses = true
+      exceptionFormat = 'full'
+    }
+  }
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '4.5'
+}
