@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.wadejensen.jacksonscalaexample.SparkInternalJsonParserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-12-05T03:26:36" hostname="Wades-MacBook-Pro.local" time="0.263">
+  <properties/>
+  <testcase name="fromJson must must deserialize a row in vanilla Scala" classname="com.wadejensen.jacksonscalaexample.SparkInternalJsonParserTest" time="0.263"/>
+  <system-out><![CDATA[Person(Wade Jensen,Some(23),Brisbane,Location(-33.8688,151.2093),List(programming, drinking, climbing),None)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

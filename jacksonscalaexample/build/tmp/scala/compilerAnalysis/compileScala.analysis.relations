@@ -1,0 +1,15 @@
+products:
+   src/main/scala/com/wadejensen/jacksonscalaexample/IdenticalStrategy.scala -> build/classes/scala/main/com/wadejensen/jacksonscalaexample/IdenticalStrategy.class
+   src/main/scala/com/wadejensen/jacksonscalaexample/Main.scala -> build/classes/scala/main/com/wadejensen/jacksonscalaexample/Main.class
+binary dependencies:
+   src/main/scala/com/wadejensen/jacksonscalaexample/IdenticalStrategy.scala -> /Users/wjensen/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.6.7/1857f49ee9dffe1c8d17d4c3980e0d713af2806/jackson-databind-2.6.7.jar
+   src/main/scala/com/wadejensen/jacksonscalaexample/IdenticalStrategy.scala -> /Users/wjensen/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.11.8/ddd5a8bced249bedd86fb4578a39b9fb71480573/scala-library-2.11.8.jar
+   src/main/scala/com/wadejensen/jacksonscalaexample/Main.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/rt.jar
+   src/main/scala/com/wadejensen/jacksonscalaexample/Main.scala -> /Users/wjensen/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.6.7/1857f49ee9dffe1c8d17d4c3980e0d713af2806/jackson-databind-2.6.7.jar
+   src/main/scala/com/wadejensen/jacksonscalaexample/Main.scala -> /Users/wjensen/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-scala_2.11/2.6.7/c0d5ff962fcedb3b9d2238add0d7a504084f2d21/jackson-module-scala_2.11-2.6.7.jar
+   src/main/scala/com/wadejensen/jacksonscalaexample/Main.scala -> /Users/wjensen/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.11.8/ddd5a8bced249bedd86fb4578a39b9fb71480573/scala-library-2.11.8.jar
+source dependencies:
+external dependencies:
+class names:
+   src/main/scala/com/wadejensen/jacksonscalaexample/IdenticalStrategy.scala -> com.wadejensen.jacksonscalaexample.IdenticalStrategy
+   src/main/scala/com/wadejensen/jacksonscalaexample/Main.scala -> com.wadejensen.jacksonscalaexample.Main

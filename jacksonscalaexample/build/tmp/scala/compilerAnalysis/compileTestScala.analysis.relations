@@ -1,0 +1,26 @@
+products:
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> build/classes/scala/test/com/wadejensen/jacksonscalaexample/Location$.class
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> build/classes/scala/test/com/wadejensen/jacksonscalaexample/Location.class
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> build/classes/scala/test/com/wadejensen/jacksonscalaexample/Person$.class
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> build/classes/scala/test/com/wadejensen/jacksonscalaexample/Person.class
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> build/classes/scala/test/com/wadejensen/jacksonscalaexample/SparkInternalJsonParserTest$$anonfun$1$$anonfun$apply$mcV$sp$1.class
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> build/classes/scala/test/com/wadejensen/jacksonscalaexample/SparkInternalJsonParserTest$$anonfun$1.class
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> build/classes/scala/test/com/wadejensen/jacksonscalaexample/SparkInternalJsonParserTest.class
+binary dependencies:
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/rt.jar
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> /Users/wjensen/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.6.7/7e08eafe72cbd11c955d92109108bd2bfaab979e/jackson-annotations-2.6.7.jar
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> /Users/wjensen/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.6.7/1857f49ee9dffe1c8d17d4c3980e0d713af2806/jackson-databind-2.6.7.jar
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> /Users/wjensen/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-scala_2.11/2.6.7/c0d5ff962fcedb3b9d2238add0d7a504084f2d21/jackson-module-scala_2.11-2.6.7.jar
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> /Users/wjensen/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> /Users/wjensen/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.11.8/ddd5a8bced249bedd86fb4578a39b9fb71480573/scala-library-2.11.8.jar
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> /Users/wjensen/.gradle/caches/modules-2/files-2.1/org.scalatest/scalatest_2.11/2.2.6/80cd969b5f678cd90017498d865e63d7f6e79696/scalatest_2.11-2.2.6.jar
+source dependencies:
+external dependencies:
+class names:
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> com.wadejensen.jacksonscalaexample.Location
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> com.wadejensen.jacksonscalaexample.Location$
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> com.wadejensen.jacksonscalaexample.Person
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> com.wadejensen.jacksonscalaexample.Person$
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> com.wadejensen.jacksonscalaexample.SparkInternalJsonParserTest
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> com.wadejensen.jacksonscalaexample.SparkInternalJsonParserTest$$anonfun$1
+   src/test/scala/com/wadejensen/jacksonscalaexample/JacksonScalaParseTest.scala -> com.wadejensen.jacksonscalaexample.SparkInternalJsonParserTest$$anonfun$1$$anonfun$apply$mcV$sp$1

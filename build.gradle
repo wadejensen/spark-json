@@ -39,7 +39,7 @@ subprojects {
 
   ext {
     scalaVersion = '2.11'
-    jacksonVersion = '2.6.7'
+    jacksonVersion = '2.9.6'
     sparkVersion = '2.3.0'
     scalatestVersion = '2.2.6'
     junitVersion = '4.12'
@@ -51,17 +51,32 @@ subprojects {
   targetCompatibility = '1.8'
 }
 
-project(':sparkjson') {
+project(':jacksonscalaexample') {
   apply plugin: 'scala'
   apply plugin: 'com.github.johnrengelman.shadow'
 
-  configurations {
-    shadow
-    compileOnly.extendsFrom shadow
+  // Configure transitive dependency rules
+  configurations.all {
+    // exclude transitive dependencies
+    exclude group: 'log4j', module: 'log4j'
+    exclude group: 'org.slf4j', module: 'slf4j-log4j12'
 
-    all {
-      exclude group: 'log4j', module: 'log4j'
-      exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    resolutionStrategy {
+      // force transitive dependency versions for groups
+      def forcedGroupVersions = [
+              //'com.fasterxml.jackson': jacksonVersion,
+              'ch.qos.logback'       : logbackVersion,
+              'org.slf4j'            : slf4jVersion
+              //'org.apache.spark'     : sparkVersion,
+      ]
+      eachDependency { dependency ->
+        forcedGroupVersions.
+                findAll { group, version -> dependency.requested.group.startsWith(group) }?.
+                each { group, version -> dependency.useVersion version }
+      }
+
+      // force transitive dependency versions for artifacts
+      force "org.scalatest:scalatest_$scalaVersion:$scalatestVersion"
     }
   }
 
@@ -71,13 +86,15 @@ project(':sparkjson') {
   }
 
   dependencies {
-    compileOnly "org.apache.spark:spark-sql_$scalaVersion:$sparkVersion"
+    // compileOnly "org.apache.spark:spark-sql_$scalaVersion:$sparkVersion"
 
+    //compile "com.fasterxml.jackson.module:jackson-module-scala_2.11:2.9.6"
+    compile "com.twitter:finatra-jackson_2.11:18.12.0"
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "org.slf4j:log4j-over-slf4j:$slf4jVersion"
     compile "ch.qos.logback:logback-classic:$logbackVersion"
 
-    testCompile "org.apache.spark:spark-sql_$scalaVersion:$sparkVersion"
+    //testCompile "org.apache.spark:spark-sql_$scalaVersion:$sparkVersion"
     testCompile "org.scalatest:scalatest_$scalaVersion:$scalatestVersion"
     testCompile "junit:junit:$junitVersion"
   }
